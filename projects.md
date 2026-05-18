@@ -4,10 +4,10 @@ permalink: /projects/
 description: "A project board for AI Infra experiments, local LLM deployment, GPU benchmarking, and useful engineering tools."
 ---
 
-<section class="page-hero">
+<section class="page-title block-section">
   <p class="eyebrow">Projects</p>
   <h1>Small but real systems experiments.</h1>
-  <p>This page is a public workbench for projects that prove learning through implementation: local deployments, benchmarks, GPU environment setup, and useful tools.</p>
+  <p class="lead">A public workbench for projects that prove learning through implementation: local deployments, benchmarks, GPU environment setup, and useful tools.</p>
 </section>
 
 <section class="project-grid">

@@ -1,0 +1,49 @@
+<aside class="sidebar" aria-label="Site sidebar">
+    <section class="sidebar-card profile-card">
+        <div class="avatar">SZ</div>
+        <h2>{{ site.author.name }}</h2>
+        <p>AI Infra learner focused on GPU systems, CUDA, LLM serving, and practical deployment logs.</p>
+        <dl class="stat-list">
+            <div><dt>Posts</dt><dd>{{ site.posts | size }}</dd></div>
+            <div><dt>Focus</dt><dd>{{ site.focus_areas | size }}</dd></div>
+            <div><dt>Mode</dt><dd>Learning</dd></div>
+        </dl>
+        <a class="sidebar-button" href="https://github.com/{{ site.author.github }}">Follow on GitHub</a>
+    </section>
+
+    <section class="sidebar-card">
+        <h2>Categories</h2>
+        <ul class="sidebar-list">
+            {% for category in site.categories limit:8 %}
+            <li><a href="{{ '/categories/' | relative_url }}#{{ category[0] | slugify }}">{{ category[0] }} <span>{{ category[1] | size }}</span></a></li>
+            {% else %}
+            <li><a href="{{ '/categories/' | relative_url }}#meta">meta <span>1</span></a></li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="sidebar-card">
+        <h2>Recent Posts</h2>
+        <ul class="sidebar-list recent-list">
+            {% for post in site.posts limit:5 %}
+            <li>
+                <a href="{{ post.url | relative_url }}">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m-%d-%Y" }}</time>
+                    <strong>{{ post.title }}</strong>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="sidebar-card">
+        <h2>Tags</h2>
+        <div class="tag-cloud small">
+            {% for tag in site.tags limit:18 %}
+            <a href="{{ '/tags/' | relative_url }}#{{ tag[0] | slugify }}">{{ tag[0] }}</a>
+            {% else %}
+            {% for area in site.focus_areas %}<span>{{ area }}</span>{% endfor %}
+            {% endfor %}
+        </div>
+    </section>
+</aside>

@@ -1,84 +1,88 @@
 ---
 title: Home
-description: "A warm AI Infra engineering blog by SZiiN, focused on CUDA, GPU systems, vLLM, deployment notes, and learning in public."
+description: "A structured AI Infra engineering logbook by SZiiN, focused on CUDA, GPU systems, vLLM, deployment notes, projects, and learning in public."
 ---
 
-<section class="hero">
-  <div class="hero-copy">
-    <p class="eyebrow">AI Infra · CUDA · LLM Systems</p>
-    <h1>Hi, I'm SZiiN — building a calm corner for GPU experiments, LLM infra notes, and real engineering growth.</h1>
-    <p class="hero-lead">
-      This is not a cold résumé site. It is a long-term lab notebook for learning in public:
-      CUDA kernels, vLLM deployment, Linux debugging, benchmark stories, and the occasional music-fueled reflection.
-    </p>
+<section class="home-hero block-section">
+  <div class="hero-text">
+    <p class="eyebrow">Personal Engineering Logbook</p>
+    <h1>SZiiN's AI Infra notes, CUDA experiments, and LLM systems journal.</h1>
+    <p class="lead">A professional but relaxed home for technical growth: reproducible notes, deployment lessons, benchmark stories, and projects that show the actual engineering path.</p>
     <div class="hero-actions">
-      <a class="button primary" href="{{ '/blog/' | relative_url }}">Read the blog</a>
-      <a class="button secondary" href="{{ '/about/' | relative_url }}">Meet the human</a>
+      <a class="button primary" href="{{ '/blog/' | relative_url }}">Start Reading</a>
+      <a class="button secondary" href="{{ '/projects/' | relative_url }}">View Projects</a>
     </div>
   </div>
-  <aside class="hero-card" aria-label="Current focus">
-    <span class="status-dot"></span>
-    <p class="card-label">Currently exploring</p>
-    <ul>
+  <div class="hero-summary">
+    <h2>Current Focus</h2>
+    <ul class="check-list">
       <li>LLM inference and serving systems</li>
-      <li>GPU performance, CUDA, and profiling</li>
-      <li>Reliable Linux environments for experiments</li>
+      <li>CUDA, GPU profiling, and performance intuition</li>
+      <li>Linux environments that are repeatable and explainable</li>
+      <li>Learning in public without making readers feel pressured</li>
     </ul>
-  </aside>
-</section>
-
-<section class="section-grid">
-  <article class="feature-card">
-    <span>01</span>
-    <h2>Deep but readable</h2>
-    <p>Notes are written for relaxed learning: enough implementation detail to be useful, without turning every post into a paper.</p>
-  </article>
-  <article class="feature-card">
-    <span>02</span>
-    <h2>Systems first</h2>
-    <p>The blog focuses on practical infrastructure: GPU setup, deployment friction, profiling, throughput, latency, and tradeoffs.</p>
-  </article>
-  <article class="feature-card">
-    <span>03</span>
-    <h2>Personal signal</h2>
-    <p>Music, late-night debugging, and honest learning logs keep the site human instead of overly corporate.</p>
-  </article>
-</section>
-
-<section class="content-band">
-  <div>
-    <p class="eyebrow">Writing map</p>
-    <h2>Topics I want to grow into</h2>
-  </div>
-  <div class="tag-cloud">
-    {% for area in site.focus_areas %}
-    <span>{{ area }}</span>
-    {% endfor %}
-    <span>Triton</span>
-    <span>Inference Benchmark</span>
-    <span>Distributed Systems</span>
   </div>
 </section>
 
-<section class="split-section">
-  <div>
-    <p class="eyebrow">Latest notes</p>
-    <h2>Recent posts</h2>
-    <div class="post-list compact">
-      {% for post in site.posts limit:3 %}
-      <a class="post-row" href="{{ post.url | relative_url }}">
-        <span>{{ post.date | date: "%Y.%m.%d" }}</span>
-        <strong>{{ post.title }}</strong>
-      </a>
-      {% else %}
-      <p>No posts yet. The first CUDA note is warming up.</p>
-      {% endfor %}
+<section class="block-section">
+  <div class="section-heading">
+    <p class="eyebrow">Who am I</p>
+    <h2>An AI Infra learner with a systems mindset and a human voice.</h2>
+  </div>
+  <div class="text-columns">
+    <p>I am SZiiN, also known as EternalBady. My direction is AI Infra / LLM Infra: GPU systems, inference deployment, CUDA notes, benchmark analysis, and the small debugging details that make engineering real.</p>
+    <p>This site is meant to feel like a serious logbook rather than a cold résumé. It should be readable, structured, a little hacker-like, and still warm enough that people can learn comfortably.</p>
+  </div>
+</section>
+
+<section class="block-section">
+  <div class="section-heading inline-heading">
+    <div>
+      <p class="eyebrow">Writing Map</p>
+      <h2>Clear sections for long-term growth</h2>
     </div>
+    <a class="text-link" href="{{ '/categories/' | relative_url }}">Browse categories →</a>
   </div>
-  <div class="terminal-card">
-    <div class="terminal-bar"><span></span><span></span><span></span></div>
-    <pre><code>$ nvidia-smi
-$ python benchmark.py --model llama
-$ write-note "what actually happened"</code></pre>
+  <div class="category-grid">
+    {% for item in site.featured_categories %}
+    <article class="category-card">
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.description }}</p>
+    </article>
+    {% endfor %}
   </div>
+</section>
+
+<section class="block-section recent-section">
+  <div class="section-heading inline-heading">
+    <div>
+      <p class="eyebrow">Recently</p>
+      <h2>Latest notes</h2>
+    </div>
+    <a class="text-link" href="{{ '/archives/' | relative_url }}">Archives →</a>
+  </div>
+  <div class="article-list">
+    {% for post in site.posts limit:5 %}
+    <article class="article-row">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+      <div>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+      </div>
+    </article>
+    {% else %}
+    <p>No posts yet. The first CUDA note is warming up.</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="block-section lab-section">
+  <div>
+    <p class="eyebrow">Lab Notebook</p>
+    <h2>What a good post should contain</h2>
+    <p class="lead small-lead">A note is useful when it records context, commands, observations, tradeoffs, and what I would do differently next time.</p>
+  </div>
+  <pre class="terminal-card"><code>$ nvidia-smi
+$ python benchmark.py --model llama --serve vllm
+$ write-note --include commands,metrics,mistakes</code></pre>
 </section>

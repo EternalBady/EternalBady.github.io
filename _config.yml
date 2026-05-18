@@ -1,7 +1,7 @@
 title: SZiiN Lab
 tagline: AI Infra, CUDA notes, and late-night systems experiments
 email: email@example.com
-description: "A warm AI Infra engineering blog about GPU systems, CUDA, vLLM, LLM deployment, Linux notes, and learning in public."
+description: "A structured AI Infra engineering logbook about GPU systems, CUDA, vLLM, LLM deployment, Linux notes, and learning in public."
 baseurl: ""
 url: "https://EternalBady.github.io"
 
@@ -11,24 +11,29 @@ plugins:
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/
 
-collections:
-  projects:
-    output: false
-
 # Site identity
 author:
   name: SZiiN
   handle: EternalBady
   github: EternalBady
   x: your_handle
+  location: AI Infra Path
 
 navigation:
   - title: Home
     url: /
   - title: Blog
     url: /blog/
+  - title: Articles
+    url: /articles/
   - title: Projects
     url: /projects/
+  - title: Archives
+    url: /archives/
+  - title: Categories
+    url: /categories/
+  - title: Tags
+    url: /tags/
   - title: About
     url: /about/
 
@@ -39,6 +44,16 @@ focus_areas:
   - LLM Deployment
   - Linux Notes
   - Benchmarking
+
+featured_categories:
+  - name: CUDA
+    description: Kernel notes, memory model, profiling, and optimization records.
+  - name: vLLM
+    description: Serving experiments, deployment notes, and inference tradeoffs.
+  - name: Linux
+    description: Environment setup, driver issues, reproducibility, and shell tools.
+  - name: Systems
+    description: Performance analysis, benchmarks, and infrastructure thinking.
 
 # Default values for posts
 future: false
