@@ -1,0 +1,20 @@
+title: SZiiN - AI Infra & LLM Blog
+email: email@example.com
+description: "SZiiN's blog about everything."
+baseurl: "" # GitHub Pages 
+url: "https://EternalBady.github.io" # My Pages URL
+
+theme: minima
+plugins:
+  - jekyll-feed
+
+markdown: kramdown
+
+# Default values for posts
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "SZiiN"
