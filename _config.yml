@@ -1,16 +1,47 @@
-title: SZiiN - AI Infra & LLM Blog
+title: SZiiN Lab
+tagline: AI Infra, CUDA notes, and late-night systems experiments
 email: email@example.com
-description: "SZiiN's blog about everything."
-baseurl: "" # GitHub Pages 
-url: "https://EternalBady.github.io" # My Pages URL
+description: "A warm AI Infra engineering blog about GPU systems, CUDA, vLLM, LLM deployment, Linux notes, and learning in public."
+baseurl: ""
+url: "https://EternalBady.github.io"
 
-theme: minima
 plugins:
   - jekyll-feed
 
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+collections:
+  projects:
+    output: false
+
+# Site identity
+author:
+  name: SZiiN
+  handle: EternalBady
+  github: EternalBady
+  x: your_handle
+
+navigation:
+  - title: Home
+    url: /
+  - title: Blog
+    url: /blog/
+  - title: Projects
+    url: /projects/
+  - title: About
+    url: /about/
+
+focus_areas:
+  - AI Infra
+  - CUDA / GPU
+  - vLLM
+  - LLM Deployment
+  - Linux Notes
+  - Benchmarking
 
 # Default values for posts
+future: false
 defaults:
   - scope:
       path: ""
@@ -18,3 +49,7 @@ defaults:
     values:
       layout: "post"
       author: "SZiiN"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
