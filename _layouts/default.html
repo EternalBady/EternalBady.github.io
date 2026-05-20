@@ -3,25 +3,56 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    {% feed_meta %}
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-        </header>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
+                <span class="brand-mark">SZ</span>
+                <span>
+                    <strong>{{ site.title }}</strong>
+                    <small>{{ site.tagline }}</small>
+                </span>
+            </a>
+            <nav class="site-nav" aria-label="Primary navigation">
+                {% for item in site.navigation %}
+                <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.title }}</a>
+                {% endfor %}
+            </nav>
+        </div>
+    </header>
 
-        <main>
+    <div class="site-banner">
+        <div class="site-banner-inner">
+            <p>AI Infra · CUDA · GPU Systems · vLLM · Linux</p>
+            <span>Learning in public, one reproducible note at a time.</span>
+        </div>
+    </div>
+
+    <div class="page-shell">
+        <main class="content-panel">
             {{ content }}
         </main>
-
-        <footer>
-            <p>© 2026 SZiiN – AI Infra & LLM Blog</p>
-        </footer>
+        {% include sidebar.html %}
     </div>
+
+    <footer class="site-footer">
+        <div>
+            <strong>{{ site.title }}</strong>
+            <p>© 2026 {{ site.author.name }} · Built with curiosity, music, and late-night debugging.</p>
+        </div>
+        <p><a href="https://github.com/{{ site.author.github }}">GitHub</a> · <a href="{{ '/feed.xml' | relative_url }}">RSS</a></p>
+    </footer>
 </body>
 
 </html>

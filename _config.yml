@@ -1,16 +1,62 @@
-title: SZiiN - AI Infra & LLM Blog
+title: SZiiN Lab
+tagline: AI Infra, CUDA notes, and late-night systems experiments
 email: email@example.com
-description: "SZiiN's blog about everything."
-baseurl: "" # GitHub Pages 
-url: "https://EternalBady.github.io" # My Pages URL
+description: "A structured AI Infra engineering logbook about GPU systems, CUDA, vLLM, LLM deployment, Linux notes, and learning in public."
+baseurl: ""
+url: "https://EternalBady.github.io"
 
-theme: minima
 plugins:
   - jekyll-feed
 
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# Site identity
+author:
+  name: SZiiN
+  handle: EternalBady
+  github: EternalBady
+  x: your_handle
+  location: AI Infra Path
+
+navigation:
+  - title: Home
+    url: /
+  - title: Blog
+    url: /blog/
+  - title: Articles
+    url: /articles/
+  - title: Projects
+    url: /projects/
+  - title: Archives
+    url: /archives/
+  - title: Categories
+    url: /categories/
+  - title: Tags
+    url: /tags/
+  - title: About
+    url: /about/
+
+focus_areas:
+  - AI Infra
+  - CUDA / GPU
+  - vLLM
+  - LLM Deployment
+  - Linux Notes
+  - Benchmarking
+
+featured_categories:
+  - name: CUDA
+    description: Kernel notes, memory model, profiling, and optimization records.
+  - name: vLLM
+    description: Serving experiments, deployment notes, and inference tradeoffs.
+  - name: Linux
+    description: Environment setup, driver issues, reproducibility, and shell tools.
+  - name: Systems
+    description: Performance analysis, benchmarks, and infrastructure thinking.
 
 # Default values for posts
+future: false
 defaults:
   - scope:
       path: ""
@@ -18,3 +64,7 @@ defaults:
     values:
       layout: "post"
       author: "SZiiN"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
